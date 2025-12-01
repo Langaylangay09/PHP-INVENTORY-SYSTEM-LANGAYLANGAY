@@ -1,0 +1,103 @@
+body {
+    background-color: skyblue;
+    margin: 0;
+    padding: 0;
+}
+
+.home-logo {
+    width: 125px;
+    height: 125px;
+    padding-top: 10px;
+}
+
+h1 {
+    font-style: italic;
+    font-size: 60px;
+    padding-left: 50px;
+}
+
+.top {
+    display: flex;
+    padding: 0 0 0 30px;
+    border: block;
+    border-bottom: solid 6px;
+}
+
+h2 {
+    width: fit-content;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: white;
+    padding: 10px 50px;
+    margin-left: 650px;
+    margin-top: 60px;
+    align-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border: solid 2px;
+    width: 100px;
+    background: white;
+    margin-left: 50px;
+    padding: 2px;
+    border-radius: 20px;
+    margin-top: 40px;
+
+}
+
+.nav-menu li a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+.nav-menu li {
+    margin-top: 50px;
+}
+
+.nav-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.history-table, th, td {
+    border: solid 2px;
+    border-width: solid 2px;
+    border-collapse: collapse;
+    margin-left: 545px;
+    margin-top: -514px;
+    background: lightblue;
+    font-size: 20px;
+}
+
+td {
+    padding: 30px;
+}
+
+tr {
+    padding: 20px;
+}
+
+.history-table {
+    border: solid 1px;
+}
+
+tr a {
+    margin-right: 10px;
+}

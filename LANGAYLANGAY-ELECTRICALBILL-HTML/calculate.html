@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculate</title>
+  <link rel="stylesheet" href="calculate.css">
+</head>
+<body>
+
+    <div class="top">
+        <img src="logo.png" alt="logo" class="home-logo">
+        <h1>ELECTRIC BILL CALCULATOR</h1>
+    </div>
+
+    <nav class="nav-menu">
+    <ul>
+        <li><a href="Home.html"><img src="home-logo.png" alt="Home" class="nav-icon">Home</a></li>
+        <li><a href="calculate.html"><img src="calculate-logo.png" alt="Calculate" class="nav-icon">Calculate</a></li>
+        <li><a href="history.html"><img src="history-logo.png" alt="History" class="nav-icon">History</a></li>
+    </ul>
+    </nav>
+
+    <form class="calculate-page">
+        
+        <label>Month</label>
+        <input type="month" class="cal-month">
+        <label>Power Consumption (kWh)</label>
+        <input type="number" class="power-con">
+        <label>Cost per kilowatt-hour</label>
+        <input type="number" class="cost-kw">
+        <label class="cal-total-text">Total bill:</label>
+        <input type="text" placeholder="Total" class="cal-total">
+
+            <div class="submit-reset">
+                <input type="submit" class="cal-submit">
+                <input type="reset" class="cal-reset">
+            </div>
+    </form>
+
+</body>
+</html>

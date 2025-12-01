@@ -1,0 +1,113 @@
+body {
+    background-color: skyblue;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.logo img {
+    width: 230px;
+    height: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+form button {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.user-login, .pass-login {
+    font-size: 17px;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+.login-button {
+    font-size: 17px;
+    border: solid 1px;
+    border-radius: 10px;
+    width: 200px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.fpass {
+    font-size: 18px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.signup {
+    font-size: 18px;
+}
+
+.signup-link{
+    font-weight: bold;
+}
+
+.fb-gmail-signup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.facebook-button, .gmail-button {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: solid 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.facebook-button {
+    background: #007bff;
+    color: white;
+    border-color: black;
+}
+
+.facebook-button img, .gmail-button img {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    padding: 2px;
+}
+
+.gmail-button {
+    border-color: black;
+    color: black;
+    background-color: white;
+}
+
+.signup-link {
+    text-decoration: underline;
+}

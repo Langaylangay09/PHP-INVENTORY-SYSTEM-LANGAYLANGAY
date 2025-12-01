@@ -1,0 +1,119 @@
+body {
+    background-color: skyblue;
+    margin: 0;
+    padding: 0;
+}
+
+.home-logo {
+    width: 125px;
+    height: 125px;
+    padding-top: 10px;
+}
+
+h1 {
+    font-style: italic;
+    font-size: 60px;
+    padding-left: 50px;
+}
+
+.top {
+    display: flex;
+    padding: 0 0 0 30px;
+    border: block;
+    border-bottom: solid 6px;
+}
+
+.profile-logo {
+    width: 130px;
+    height: 130px;
+}
+
+.profile-button {
+    border: solid 2px;
+    padding: 0 30px;
+    padding-top:  5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-style: italic;
+    color: black;
+    border-color: black;
+    border-radius: 13px;
+    background: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.home-profile {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.dashboard {
+    width: fit-content;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: white;
+    padding: 10px 50px;
+    margin-left: 280px;
+
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border: solid 2px;
+    width: 100px;
+    background: white;
+    margin-left: 50px;
+    padding: 2px;
+    border-radius: 20px;
+    margin-top: 40px;
+
+}
+
+.nav-menu li a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+.nav-menu li {
+    margin-top: 50px;
+}
+
+.nav-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.dashboard-container {
+
+    margin-left: 90px; 
+    margin-top: -550px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.dashboard-img {
+    width: 1000px;
+    height: auto;
+    object-fit: cover;
+
+}
