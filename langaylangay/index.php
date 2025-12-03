@@ -4,64 +4,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>E-sariPH</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <div class="container">
+
     <nav class="nav">
       <div class="nav-logo">
-        <h1>My Shop</h1>
+        <h1>E-sariPH</h1>
       </div>
+
       <div class="nav-links">
-        <a href="">Shop</a>
-        <a href="">About</a>
-        <a href="">Values</a>
-        <a href="">Contacts</a>
+        <a href="#Home">Home</a>
+        <a href="#Products">Products</a>
+        <a href="#Socials">Socials</a>
+        <a href="#About">About Us</a>
       </div>
+
       <div class="nav-search">
         <input type="text" placeholder="Search">
         <button>Search</button>
       </div>
     </nav>
-    <section class="hero">
+
+
+    <section id="Home" class="hero">
       <div class="hero-intro">
-        <h1>Products for my Sari Sari Store for Sale!</h1>
-        <button>Shop Now!</button>
+        <h1>
+          “A fast and convenient way for everyday essentials. 
+          Order what you need anytime and have it delivered right to your doorstep.”
+        </h1>
+        <button><a href="#Products">Shop Now!</a></button>
       </div>
+
       <div class="hero-image">
-        <img src="https://imgs.search.brave.com/kZ3OfKaLbQd5BqH3crLphivWbt82sUnnzUalqCh2pGI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI5/MDU0MTk5Ny9waG90/by9jb2xvci1zd2F0/Y2gtZmFubmVkLW91/dC5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9dWNJQ3ZpcmQ5/MlNWVnRjSGxTeDJl/NzRySjExZ2M0UUlq/MTVEVnlmbHBDdz0" alt="">
+        <img src="beverages.png" alt="Beverages">
+        <img src="chips.png" alt="Chips">
       </div>
     </section>
-    <section class="products">
 
 
-      <?php
-      include 'database.php';
+    <section class="product" id="Products">
+      <h1>PRODUCTS</h1>
 
-      $sql = "SELECT * FROM products";
-      $result = $conn->query($sql);
+        <div class="category-container">
+        <?php
+        
+        include 'database.php';
 
-      if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-          echo "<div class='product'>
-                <h4>Name: " . $row["name"] . "</h4>
-                <p>Price: " . $row["price"] . "</p>
-                <p>Quantity: " . $row["quantity"] . "</p>
-              </div>
-          ";
+       
+        $cat_sql = "SELECT * FROM categories";
+        $cat_result = $conn->query($cat_sql);
+
+        if ($cat_result && $cat_result->num_rows > 0) {
+            while($cat = $cat_result->fetch_assoc()) {
+                echo "<div class='categories'>
+                        
+                      </div>";
+            }
+        } else {
+            echo "No categories found";
         }
-      } else {
-        echo "0 results";
-      }
+        ?>
+    </div>
 
-      ?>
-    </section>
+    <div class="products-container">
+    <?php
+    $sql = "
+        SELECT products.*, categories.category_Name 
+        FROM products 
+        LEFT JOIN categories 
+        ON products.category_ID = categories.category_ID
+    ";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+
+          
+            switch($row['product_Name']) {
+                case 'Potato chips':
+                  $image = 'potato chips.jpg';
+                  break;
+                case 'Corn chips':
+                  $image = 'corn chips.jpg';
+                  break;
+                case 'Soda':
+                  $image = 'soda.jpg';
+                  break;
+                case 'Wheat cracker':
+                  $image = 'wheat cracker.jpg';
+                  break;
+                case 'Fita':
+                  $image = 'fita.jpg';
+                  break;
+                case 'Fanta':
+                  $image = 'fanta.png';
+                  break;
+                case 'Kit Kat':
+                  $image = 'kit kat.jpg';
+                  break; 
+                case 'Gummy bears':
+                  $image = 'gummy bears.jpg';
+                  break;           
+                default:
+                  $image = 'images/default.png'; // fallback image
+                  break;
+                }
+            echo "<div class='products'>
+        <div class='edit-delete'>
+            <a class='edit-btn' href='edit_product.php?id=" . $row['product_ID'] . "'>Edit</a>
+
+            <a class='delete-btn' 
+               href='delete_product.php?id=" . $row['product_ID'] . "' 
+               onclick=\"return confirm('Are you sure you want to delete this product?');\">
+               Delete
+            </a>
+        </div>
+
+        <h4>Name: " . htmlspecialchars($row["product_Name"]) . "</h4>
+        <h4>Category: " . htmlspecialchars($row["category_Name"]) . "</h4>
+        <p>Quantity: " . htmlspecialchars($row["product_Quantity"]) . "</p>
+        <p>Price: " . htmlspecialchars($row["product_Price"]) . "</p>
+
+        <div class='product-img'>
+            <img 
+                src='" . $image . "' 
+                alt='" . htmlspecialchars($row['product_Name']) . "' 
+                title='" . htmlspecialchars($row['product_Name']) . "' 
+                width='150' 
+                height='150'>
+        </div>
+      </div>";
+
+        }
+    } else {
+        echo "No products found";
+    }
+    ?>
+</div>
+
+      </section>
+
+
+  <section id="Socials" class="Socials">
+  <h1>SOCIALS</h1>
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/" target="_blank">
+      <img src="fb-logo.png" alt="Facebook" class="social-icon"> Facebook
+    </a>
+    <a href="https://workspace.google.com/intl/en-US/gmail/" target="_blank">
+      <img src="gmail-logo.png" alt="Gmail" class="social-icon"> Gmail
+    </a>
+    <a href="https://www.instagram.com/" target="_blank">
+      <img src="instagram-logo.png" alt="Instagram" class="social-icon"> Instagram
+    </a>
   </div>
 
+  <p>Coming soon...</p>
+</section>
+
+
+    <section id="About" class="about">
+  <h1>About Us</h1>
+
+
+  <div class="about-text">
+    <p>
+      E-sariPH is your one-stop online store for everyday essentials. 
+      We make shopping simple, fast, and convenient. Order your favorite products anytime 
+      and have them delivered straight to your doorstep.
+    </p>
+    <p>
+      Our mission is to provide quality products and excellent service to make your life easier. 
+      We are committed to customer satisfaction and a seamless online shopping experience.
+    </p>
+  </div>
+
+
+  <div class="about-socials">
+    <a href="https://www.facebook.com/" target="_blank">
+      <img src="fb-logo.png" alt="Facebook" class="social-icon"> Facebook
+    </a>
+    <a href="https://www.instagram.com/" target="_blank">
+      <img src="instagram-logo.png" alt="Instagram" class="social-icon"> Instagram
+    </a>
+  </div>
+</section>
+
+  </div>
 
 </body>
 
